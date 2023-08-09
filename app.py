@@ -20,7 +20,8 @@ import skdim
 
 # Sidebar for setting parameters
 st.sidebar.header("Set Experiment Parameters")
-n_obs = st.sidebar.slider("Number of observations:", 100, 10000, 1000)
+n_obs = st.sidebar.select_slider("Number of observations:", options=[
+                                 int((1+i)*1000) for i in range(10)])
 true_dims = st.sidebar.slider("Number of true dimensions:", 1, 10, 2)
 n_redundant_per_true = st.sidebar.slider(
     "Number of redundant dimensions per true dimension:", 1, 200, 100)

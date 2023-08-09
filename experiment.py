@@ -244,7 +244,8 @@ def plot_dim_reductions(true_dim_dict, results_dict, sep_str):
         for ax in ax_row:
             for spine in ax.spines.values():
                 spine.set_linewidth(2)
-    plt.savefig("assets/true_dims_with_noise_vs_dim_reduction"+sep_str+".png", dpi=300)
+    #plt.savefig("assets/true_dims_with_noise_vs_dim_reduction"+sep_str+".png", dpi=300)
+    return fig
 
 
 
@@ -298,7 +299,9 @@ def plot_obs_data_heatmap(gt_data_dict, obs_data_dict, danco_dict, sep_str):
         for ax in ax_row:
             for spine in ax.spines.values():
                 spine.set_linewidth(2)
-    plt.savefig("assets/heatmap_and_scatters"+sep_str+".png", dpi=300)
+    #plt.savefig("assets/heatmap_and_scatters"+sep_str+".png", dpi=300)
+    return fig
+
 
 
 #########
@@ -368,7 +371,8 @@ def plot_distance_correlations(true_dim_dict, results_dict, sep_str):
                 spine.set_linewidth(2)
 
     # Save the figure
-    plt.savefig("assets/distance_correlations"+sep_str+".png", dpi=300)
+    #plt.savefig("assets/distance_correlations"+sep_str+".png", dpi=300)
+    return fig
 
 
 
@@ -396,4 +400,5 @@ def plot_intrinsic_dimensionality(sd_lookup, intrinsic_dim_estimate_dict, sep_st
     plt.title("Intrinsic Dimensionality vs. Noise Level")
     plt.grid(True, which='both', linestyle='--', linewidth=0.5)
     plt.tight_layout()
-    plt.savefig("assets/intrinsic_dims_increase_with_noise"+sep_str+".png", dpi=300)
+    #plt.savefig("assets/intrinsic_dims_increase_with_noise"+sep_str+".png", dpi=300)
+    return plt.gcf()
