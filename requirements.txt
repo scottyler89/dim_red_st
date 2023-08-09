@@ -1,6 +1,6 @@
 seaborn
 umap-learn
-numpy
+numpy<=1.24
 matplotlib
 scikit-learn
 scikit-dimension
