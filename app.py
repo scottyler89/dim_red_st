@@ -21,7 +21,7 @@ import skdim
 # Sidebar for setting parameters
 st.sidebar.header("Set Experiment Parameters")
 n_obs = st.sidebar.select_slider("Number of observations:", options=[
-                                 int((1+i)*1000) for i in range(4)])
+                                 100,500,1000,4000])
 true_dims = 2#st.sidebar.slider("Number of true dimensions:", 1, 10, 2)
 n_redundant_per_true = st.sidebar.slider(
     "Number of redundant dimensions per true dimension:", 1, 200, 100)
@@ -74,7 +74,7 @@ running_message = st.empty()
 if run_button:
     # Display the running message
     running_message.write(
-        "The experiment is running. This may take several minutes depending on the parameters...")
+        "The experiment is running.\n\nThis may take ~15 minutes depending on the parameters...")
 
     # Setting the random seed
     np.random.seed(123456)
