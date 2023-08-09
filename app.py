@@ -24,7 +24,7 @@ n_obs = st.sidebar.select_slider("Number of observations:", options=[
                                  100,500,1000,2500])
 true_dims = 2#st.sidebar.slider("Number of true dimensions:", 1, 10, 2)
 n_redundant_per_true = st.sidebar.slider(
-    "Number of redundant dimensions per true dimension:", 1, 200, 100)
+    "Number of redundant dimensions per true dimension:", 1, 100, 50)
 
 
 ################################
@@ -61,7 +61,7 @@ st.sidebar.write(st.session_state.sd_ratios)
 
 
 sep = st.sidebar.select_slider(
-    "Separation Vector:", options=[0, 2, 4, 6, 8])
+    "Cluster Separation:", options=[0, 2, 4, 6, 8])
 
 # Button to run the experiment
 run_button = st.sidebar.button("Run Experiment")
