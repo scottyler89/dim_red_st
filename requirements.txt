@@ -1,8 +1,7 @@
-numpy>=1.21,<1.25
-numba>=0.57,<0.58
-seaborn
-umap-learn
-matplotlib
-scikit-learn
-scikit-dimension
-minisom
+numpy==1.24.3
+seaborn==0.11.0
+umap-learn==0.3.10
+matplotlib==3.7.1
+scikit-learn==1.2.2
+scikit-dimension==0.3.3
+minisom==2.3.1
