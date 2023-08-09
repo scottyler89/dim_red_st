@@ -26,6 +26,9 @@ true_dims = st.sidebar.slider("Number of true dimensions:", 1, 10, 2)
 n_redundant_per_true = st.sidebar.slider(
     "Number of redundant dimensions per true dimension:", 1, 200, 100)
 
+
+################################
+# let the user define the sd ratios
 # A session state to keep track of the added values
 if 'sd_ratios' not in st.session_state:
     st.session_state.sd_ratios = []
@@ -47,9 +50,11 @@ st.sidebar.write(st.session_state.sd_ratios)
 
 #sd_ratios = st.sidebar.multiselect("SD Ratios:", [
 #                                    0.01, 0.05, 0.1, 0.25, 0.5, 1.], [0.01, 0.05, 0.25, 0.5, 1.])
+#######################
 
-separation_vect = st.sidebar.multiselect(
-    "Separation Vector:", [0, 1, 2, 3, 4], [0, 4])
+
+separation_vect = st.sidebar.select_slider(
+    "Separation Vector:", options=[0, 2, 4, 6, 8])
 
 # Button to run the experiment
 run_button = st.sidebar.button("Run Experiment")
