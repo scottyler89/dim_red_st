@@ -7,3 +7,4 @@ scikit-dimension==0.3.3
 minisom==2.3.1
 streamlit==1.25.0
 numba==0.57.0
+statsmodels==0.13.5
