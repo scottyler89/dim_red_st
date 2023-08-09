@@ -25,8 +25,29 @@ n_obs = st.sidebar.select_slider("Number of observations:", options=[
 true_dims = st.sidebar.slider("Number of true dimensions:", 1, 10, 2)
 n_redundant_per_true = st.sidebar.slider(
     "Number of redundant dimensions per true dimension:", 1, 200, 100)
-sd_ratios = st.sidebar.multiselect("SD Ratios:", [
-                                    0.01, 0.05, 0.1, 0.25, 0.5, 1.], [0.01, 0.05, 0.25, 0.5, 1.])
+
+# A session state to keep track of the added values
+if 'sd_ratios' not in st.session_state:
+    st.session_state.sd_ratios = []
+
+# Allow the user to input a floating-point value within the range
+new_sd_ratio = st.sidebar.number_input(
+    "Add an SD Ratio:", min_value=0.01, max_value=1.0, step=0.01, value=0.01)
+
+# Button to add the entered value to the list
+if st.sidebar.button("Add SD Ratio"):
+    st.session_state.sd_ratios.append(new_sd_ratio)
+    st.session_state.sd_ratios = sorted(list(set(
+        st.session_state.sd_ratios)))  # Sort the values
+
+# Display the current SD Ratios
+st.sidebar.write("Selected SD Ratios:")
+st.sidebar.write(st.session_state.sd_ratios)
+
+
+#sd_ratios = st.sidebar.multiselect("SD Ratios:", [
+#                                    0.01, 0.05, 0.1, 0.25, 0.5, 1.], [0.01, 0.05, 0.25, 0.5, 1.])
+
 separation_vect = st.sidebar.multiselect(
     "Separation Vector:", [0, 1, 2, 3, 4], [0, 4])
 
@@ -49,7 +70,7 @@ if run_button:
     # Iterating through separation values
     for sep in separation_vect:
         sep_name = "Clust Sep:" + str(sep)
-        for sd_ratio in sd_ratios:
+        for sd_ratio in st.session_state.sd_ratios:
             sd_name = "SD ratio:" + str(sd_ratio)
             sd_lookup[sd_name] = sd_ratio
             final_dims = true_dims
